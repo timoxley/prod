@@ -4,7 +4,7 @@
 
 Easily perform asynchronous operations on each item in a module's dependency tree.
 
-prod uses [async-mixin](https://github.com/timoxley/async-mixin) so you automatically have access to the following
+`prod` uses [async-mixin](https://github.com/timoxley/async-mixin) so you automatically have access to the following
 methods while iterating over your dependency tree:
 
 * each
