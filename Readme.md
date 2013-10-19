@@ -18,7 +18,13 @@ prod(moduleRoot).map(function(dep, next) {
 }, function(err, deps) {
   if (err) throw err
   console.log(deps)
-  // => [ 'tape@2.0.0', 'jsonify@0.0.0', 'deep-equal@0.1.0', 'defined@0.0.0', 'through@2.3.4' ]
+  // => [
+  // 'tape@2.0.0',
+  // 'jsonify@0.0.0',
+  // 'deep-equal@0.1.0',
+  // 'defined@0.0.0',
+  // 'through@2.3.4'
+  // ]
   })
 })
 
