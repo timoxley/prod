@@ -26,5 +26,13 @@
   },
   "bugs": {
     "url": "https://github.com/timoxley/prod/issues"
-  }
+  },
+  "keywords": [
+    "npm",
+    "dependency",
+    "tree",
+    "async",
+    "walk",
+    "modules"
+  ]
 }
