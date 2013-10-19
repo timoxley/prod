@@ -8,7 +8,7 @@ var slice = Function.call.bind(Array.prototype.slice)
 
 var Processor = module.exports = function Processor(start) {
   if (!(this instanceof Processor)) return new Processor(start)
-  this.start = start
+  this.start = start || process.cwd()
   this.dependencies = []
   this.initialized = false
 }

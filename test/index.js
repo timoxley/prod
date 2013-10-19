@@ -17,3 +17,13 @@ test('collects results with .map', function(t) {
                 'through' ], deps)
   })
 })
+
+test('defaults to process.cwd()', function(t) {
+  t.plan(2)
+  prod().map(function(dep, next) {
+    next(null, dep.name)
+  }, function(err, deps) {
+    t.ifError(err)
+    t.ok(deps[0], 'prod')
+  })
+})
