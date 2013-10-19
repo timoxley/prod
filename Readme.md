@@ -44,8 +44,8 @@ Object.keys(myDependencies) // => // each, eachSeries, eachLimit, map, ...etc.
 
 ```
 
-`prod` uses [async-mixin](https://github.com/timoxley/async-mixin), so you automatically have access to the following
-methods while iterating over your dependency tree:
+`prod` uses [timoxley/async-mixin](https://github.com/timoxley/async-mixin), so you automatically have access to the following
+methods from [caolin/async](https://github.com/caolan/async) while iterating over your dependency tree:
 
 * each
 * eachSeries
