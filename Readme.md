@@ -28,8 +28,7 @@ prod(moduleRoot).map(function(dep, next) {
 
 ```js
 
-// pass any module's root directory to
-// walk over it and it's dependencies
+// pass any module's root directory to walk over it and it's dependencies
 var tapeDependencies = prod(path.dirname(require.resolve('tape')))
 
 var myDependencies = prod() // defaults to process.cwd()
