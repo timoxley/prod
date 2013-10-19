@@ -1,6 +1,6 @@
 {
   "name": "prod",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Asynchronous npm dependency walker",
   "main": "index.js",
   "scripts": {
