@@ -1,0 +1,20 @@
+{
+  "name": "prod",
+  "version": "0.0.0",
+  "description": "Asynchronous npm dependency walker",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "author": "Tim Oxley",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "read-installed": "~0.2.4",
+    "async": "~0.2.9",
+    "async-mixin": "0.0.1",
+    "advisable": "~0.2.0"
+  },
+  "devDependencies": {
+    "tape": "~2.0.0"
+  }
+}
