@@ -7,7 +7,7 @@
     "test": "(cd test/fixture; npm install) && node test/index.js"
   },
   "author": "Tim Oxley",
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "dependencies": {
     "read-installed": "~0.2.4",
     "async": "~0.2.9",
@@ -16,5 +16,15 @@
   },
   "devDependencies": {
     "tape": "~2.0.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/timoxley/prod.git"
+  },
+  "bugs": {
+    "url": "https://github.com/timoxley/prod/issues"
   }
 }
