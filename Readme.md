@@ -39,7 +39,8 @@ var tapeDependencies = prod(path.dirname(require.resolve('tape')))
 
 var myDependencies = prod() // defaults to process.cwd()
 
-Object.keys(myDependencies) // => // each, eachSeries, eachLimit, map, ...etc. See below.
+Object.keys(myDependencies) // => // each, eachSeries, eachLimit, map, ...etc.
+// See below.
 
 ```
 
