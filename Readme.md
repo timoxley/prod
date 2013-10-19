@@ -2,6 +2,8 @@
 
 ### Asynchronous node module dependency tree walker.
 
+[![Build Status](https://travis-ci.org/timoxley/prod.png?branch=master)](https://travis-ci.org/timoxley/prod)
+
 Easily perform asynchronous operations on each item in a module's dependency tree.
 
 ## Example
