@@ -16,6 +16,16 @@ var Processor = module.exports = function Processor(start) {
 // inherit async methods
 Processor.prototype = asyncMixin('dependencies')
 var asyncMethods = Object.keys(Processor.prototype)
+Processor.prototype.load = function(fn) {
+  var self = this
+  readInstalled(this.start, function(err, dep) {
+    if (err) return fn(err)
+    getDependencies(dep, self.dependencies)
+    self.initialized = true
+    return fn(null, self.dependencies)
+  })
+}
+
 advisable.async.call(Processor.prototype);
 
 asyncMethods.forEach(function(method) {
@@ -23,13 +33,10 @@ asyncMethods.forEach(function(method) {
   // calling any async functions.
   Processor.prototype.before(method, function() {
     var callback = arguments[arguments.length - 1];
-    var self = this
     if (this.initialized) callback()
-    else readInstalled(this.start, function(err, dep) {
+    else this.load(function(err, deps) {
       if (err) return callback(err)
-      getDependencies(dep, self.dependencies)
-      self.initialized = true
-      return callback()
+      callback()
     })
   })
 })

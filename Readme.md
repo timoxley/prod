@@ -69,12 +69,25 @@ methods from [caolin/async](https://github.com/caolan/async) while iterating ove
 * concat
 * concatSeries
 
-If you don't want any of this async magic, you could try using
-[read-installed](https://github.com/isaacs/read-installed) with
-[traverse](https://github.com/substack/js-traverse)
+If you don't want any of this async magic, you can simply initialize
+prod with .load and use regular Array operations on its `.dependencies`
 
+```js
+var myDependencies = prod().load(function(err, dependencies) {
+  if (err) throw err
 
+  console.log(dependencies === myDependencies.dependencies) // => true
 
+  // regular ES5 Array methods
+  dependencies.map(function() {
+    return dep.name
+  })
+})
+
+```
+
+Alternatively, you could try using [read-installed](https://github.com/isaacs/read-installed)
+with [traverse](https://github.com/substack/js-traverse)
 
 ## License
 

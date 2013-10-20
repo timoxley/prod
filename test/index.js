@@ -24,6 +24,14 @@ test('defaults to process.cwd()', function(t) {
     next(null, dep.name)
   }, function(err, deps) {
     t.ifError(err)
-    t.ok(deps[0], 'prod')
+    t.strictEqual(deps[0], 'prod')
+  })
+})
+
+test('can load deps', function(t) {
+  t.plan(2)
+  prod(__dirname + '/fixture').load(function(err, deps) {
+    t.ifError(err)
+    t.strictEqual(deps[0].name, 'test-fixture')
   })
 })
