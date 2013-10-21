@@ -79,7 +79,7 @@ var myDependencies = prod().load(function(err, dependencies) {
   console.log(dependencies === myDependencies.dependencies) // => true
 
   // regular ES5 Array methods
-  dependencies.map(function() {
+  dependencies.map(function(dep) {
     return dep.name
   })
 })
