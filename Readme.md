@@ -1,14 +1,14 @@
 # prod
 
-### Asynchronous node module dependency tree walker.
+### Asynchronous node module dependency tree walking framework.
 
 [![Build Status](https://travis-ci.org/timoxley/prod.png?branch=master)](https://travis-ci.org/timoxley/prod)
 
-Easily perform asynchronous operations on each item in a module's dependency tree.
+Easily perform a kitchen sink of asynchronous operations on each item in a module's dependency tree.
 
 ## Example
 
-Put individual names and versions of all dependencies in some db:
+Put individual names and versions of all dependencies in some db by walking over the tree using an async `.map`:
 
 ```js
 
