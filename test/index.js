@@ -17,7 +17,7 @@ test('collects results with .map', function (t) {
       'jsonify',
       'deep-equal',
       'defined',
-      'through' ], deps)
+      'through' ].sort(), deps.sort())
   })
 })
 
