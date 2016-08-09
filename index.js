@@ -18,35 +18,38 @@ Processor.prototype = asyncMixin('dependencies')
 var asyncMethods = Object.keys(Processor.prototype)
 Processor.prototype.load = function(fn) {
   var self = this
-  readInstalled(this.start, function(err, dep) {
+  var visited = {}
+  readInstalled(this.start, function (err, dep) {
     if (err) return fn(err)
-    getDependencies(dep, self.dependencies)
+    getDependencies(dep, self.dependencies, visited)
     self.initialized = true
     return fn(null, self.dependencies)
   })
 }
 
-advisable.async.call(Processor.prototype);
+advisable.async.call(Processor.prototype)
 
-asyncMethods.forEach(function(method) {
+asyncMethods.forEach(function (method) {
   // Ensure we have some dependencies to work with before
   // calling any async functions.
-  Processor.prototype.before(method, function() {
-    var callback = arguments[arguments.length - 1];
-    if (this.initialized) callback()
-    else this.load(function(err, deps) {
-      if (err) return callback(err)
-      callback()
-    })
+  Processor.prototype.before(method, function () {
+    var callback = arguments[arguments.length - 1]
+    if (this.initialized) return callback()
+
+    this.load(callback)
   })
 })
 
-function getDependencies(mod, result) {
+function getDependencies (mod, result, visited) {
+  visited = visited || {}
+  if (visited[mod.realPath]) return result
+  visited[mod.realPath] = true
+
   result = result || []
   result.push(mod)
   var dependencies = mod.dependencies || []
-  Object.keys(dependencies).forEach(function(dep) {
-    getDependencies(mod.dependencies[dep], result)
+  Object.keys(dependencies).forEach(function (dep) {
+    getDependencies(mod.dependencies[dep], result, visited)
   })
   return result
 }
