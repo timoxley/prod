@@ -11,11 +11,10 @@ Easily perform a kitchen sink of asynchronous operations on each item in a modul
 Put individual names and versions of all dependencies in some db by walking over the tree using an async `.map`:
 
 ```js
-
 var prod = require('prod')
 var moduleRoot = path.dirname(require.resolve('tape'))
 
-prod(moduleRoot).map(function(dep, next) {
+prod(moduleRoot).map(function (dep, next) {
   db.put(dep.name + '@' + dep.version, next)
 }, function(err, deps) {
   if (err) throw err
@@ -43,7 +42,6 @@ var myDependencies = prod() // defaults to process.cwd()
 
 Object.keys(myDependencies) // => // each, eachSeries, eachLimit, map, ...etc.
 // See below.
-
 ```
 
 `prod` uses [timoxley/async-mixin](https://github.com/timoxley/async-mixin), so you automatically have access to the following
