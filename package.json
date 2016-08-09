@@ -9,14 +9,14 @@
   "author": "Tim Oxley",
   "license": "MIT",
   "dependencies": {
-    "read-installed": "~4.0.3",
-    "async": "~2.0.1",
-    "async-mixin": "~1.0.0",
-    "advisable": "~0.2.0"
+    "read-installed": "^4.0.3",
+    "async": "^2.0.1",
+    "async-mixin": "^1.0.1",
+    "advisable": "^0.2.0"
   },
   "devDependencies": {
     "standard": "^7.1.2",
-    "tape": "~4.6.0"
+    "tape": "^4.6.0"
   },
   "directories": {
     "test": "test"
