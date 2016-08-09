@@ -4,7 +4,7 @@
   "description": "Asynchronous npm dependency walker",
   "main": "index.js",
   "scripts": {
-    "test": "(cd test/fixture; npm install) && node test/index.js"
+    "test": "(cd test/fixture; npm install --cache-min=Infinity) && node test/index.js && standard"
   },
   "author": "Tim Oxley",
   "license": "MIT",
@@ -15,6 +15,7 @@
     "advisable": "~0.2.0"
   },
   "devDependencies": {
+    "standard": "^7.1.2",
     "tape": "~4.6.0"
   },
   "directories": {

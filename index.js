@@ -1,12 +1,10 @@
-"use strict"
+'use strict'
 
 var readInstalled = require('read-installed')
 var asyncMixin = require('async-mixin')
 var advisable = require('advisable')
 
-var slice = Function.call.bind(Array.prototype.slice)
-
-var Processor = module.exports = function Processor(start) {
+var Processor = module.exports = function Processor (start) {
   if (!(this instanceof Processor)) return new Processor(start)
   this.start = start || process.cwd()
   this.dependencies = []
@@ -16,7 +14,7 @@ var Processor = module.exports = function Processor(start) {
 // inherit async methods
 Processor.prototype = asyncMixin('dependencies')
 var asyncMethods = Object.keys(Processor.prototype)
-Processor.prototype.load = function(fn) {
+Processor.prototype.load = function (fn) {
   var self = this
   var visited = {}
   readInstalled(this.start, function (err, dep) {
